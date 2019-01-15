@@ -105,21 +105,27 @@ database.ref().on("child_added", function(childSnapshot) {
     var nextTrain = moment().add(minutesAway, "minutes");
     console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
 
+   
     //create new table row
     var newRow = $("<tr>").append(
-        $("<td>").text(newName),
-        $("<td>").text(newDestination),
-        $("<td>").text(newFreq),
-        $("<td>").text(nextTrain),
-        $("<td>").text(minutesAway)
+            $("<td>").text(newName),
+            $("<td>").text(newDestination),
+            $("<td>").text(newFreq),
+            $("<td>").text(nextTrain),
+            $("<td>").text(minutesAway),
+            $("<button>").attr("id", "remove-train-btn").text("Remove")
       );
 
     //append new table row to html
     $("#train-table > tbody").append(newRow);
 
+  
     // Run error function if it doesnt work
 
 //end firebase event
 });
 
 //create firebase event for user being able to delete train row from html table
+// $("#remove-train-btn").on("click", function() {
+//     console.log("id");
+// });
